@@ -26,17 +26,16 @@ SelectView.prototype.render= function(country){
   // infoflag.textContent = `Flag: ${country.flag}`;
   this.element.appendChild(infoflag);
 
-  const infoLanguageList = this.createLanguageList(country);
+  const infoLanguageList = this.createLanguageList(country.languages);
   this.element.appendChild(infoLanguageList);
 
 };
-SelectView.prototype.createLanguageList = function (languageData){
+SelectView.prototype.createLanguageList = function (languages){
   const list = document.createElement('ul');
-  languageData.flag.forEach((language, index) => {
-    console.log(languageData);
+  languages.forEach((language, index) => {
+    console.log(languages);
     const ele = document.createElement('li');
-    ele.textContent = language;
-    ele.value = index;
+    ele.textContent = language.name;
     list.appendChild(ele);
   })
   return list;
